@@ -29,7 +29,14 @@ function eleCss() {
         margin: '0 1px',
         'box-sizing': 'border-box'
     }).hover(function() {
-        $(this).css('background-color','#d9d9d9')
+        $(this).css('background-color', function() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        });
     });
 
     $('.container').css({
